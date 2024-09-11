@@ -1,19 +1,22 @@
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
-const cors = require('cors');
+const cors = require("cors");
 const express = require("express");
 const app = express();
-const connectDB = require('./config/db')
-const bodyParser = require('body-parser');
+const connectDB = require("./config/db");
+const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 app.use(express.json());
 
-connectDB()
+connectDB();
 
 const corsOptions = {
-  origin: "http://localhost:5173", 
+  origin: [
+    "http://localhost:5173",
+    "https://auth-apis-production.up.railway.app",
+  ],
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type,Authorization",
 };
