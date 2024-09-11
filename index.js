@@ -15,7 +15,7 @@ connectDB();
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "https://auth-apis-production.up.railway.app",
+    "https://vee-pinia-router.vercel.app",
   ],
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type,Authorization",
