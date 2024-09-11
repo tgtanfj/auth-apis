@@ -21,10 +21,22 @@ const userSchema = new mongoose.Schema({
   refresh_token: {
     type: String,
   },
+  phone: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  age: {
+    type: Number,
+  },
+  job: {
+    type: String,
+  },
 });
 
-userSchema.pre('save', async function (next) {
-  if (this.isModified('password')) {
+userSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
   }
